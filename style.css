@@ -148,14 +148,12 @@ img {
 }
 .header__wrapper {
   display: flex;
-
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
 }
 .header__nav {
   display: flex;
-  justify-content: space-between;
   gap: 2rem;
 }
 .header__nav li a {
@@ -166,6 +164,61 @@ img {
 .header__nav li a:hover {
   color: var(--clr-primary);
 }
+
+/* MOBILE RESPONSIVE | HEADER */
+.toggle__menu {
+  display: none;
+}
+.toggle__menu span {
+  background-color: var(--clr-dark);
+  width: 3rem;
+  height: 0.6rem;
+  display: block;
+  border: 2px solid var(--clr-dark);
+  border-radius: 1rem;
+}
+@media screen and (max-width: 520px) {
+  .toggle__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .header__nav {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--clr-tertiary);
+    flex-direction: column;
+    text-align: center;
+    right: -100%;
+    transform: translateY(-15rem);
+    margin-top: 25rem;
+    z-index: 9999;
+    transition: 0.5s ease;
+    justify-content: center;
+  }
+  .header__nav.open {
+    right: 0;
+    transition: 0.5s ease;
+  }
+  .toggle__menu.open span:first-child {
+    transform: translate(0, 10px) rotate(225deg);
+    transition: 0.5s ease;
+  }
+  .toggle__menu.open span:nth-child(2) {
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+  .toggle__menu.open span:last-child {
+    transform: translate(0, -6px) rotate(-225deg);
+    transition: 0.5s ease;
+  }
+  .header__logo {
+    width: 12rem;
+  }
+}
+
 /* Top */
 .top {
   padding-top: 13rem;
@@ -235,6 +288,22 @@ img {
   top: 4rem;
 }
 
+/* MOBILE RESPONSIVE | HOME BANNER */
+@media screen and (max-width: 520px) {
+  .homeBanner__img {
+    display: none;
+  }
+  .homeBanner__text {
+    text-align: justify;
+  }
+  .homeBanner__text ul li:nth-child(2) {
+    margin-left: 0;
+  }
+  .homeBanner__text ul li:last-child::before {
+    display: none;
+  }
+}
+
 /* Home About */
 .homeAbout {
   padding: 5rem 0;
@@ -268,6 +337,15 @@ img {
   gap: 3rem;
   text-align: justify;
 }
+
+/* MOBILE RESPONSIVE | HOME ABOUT */
+@media screen and (max-width: 520px) {
+  .homeAbout__title h2::before,
+  .homeAbout__img {
+    display: none;
+  }
+}
+
 /* Home Catalog */
 .homeCatalog {
   padding: 5rem 0;
@@ -295,6 +373,16 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
 }
 
+/* MOBILE RESPONSIVE | HOME CATALOG */
+@media screen and (max-width: 520px) {
+  .homeCatalog__title h2::after {
+    display: none;
+  }
+  .homeCatalog__wrapper {
+    gap: 3rem;
+  }
+}
+
 /* CTA */
 .cta {
   padding: 5rem 0;
@@ -312,6 +400,40 @@ img {
 .cta__wrapper p {
   margin-bottom: 2rem;
 }
+
+/* MOBILE RESPONSIVE | cta */
+@media screen AND (max-width: 520px) {
+  .cta__wrapper h2 {
+    font-size: var(--h3);
+  }
+}
+
+/* CTA ng catalog */
+.Cta {
+  padding: 5rem 0;
+  background-color: var(--clr-primary);
+  margin-top: 2%;
+}
+.Cta__wrapper {
+  text-align: center;
+  color: var(--clr-dark);
+}
+.Cta__wrapper h2 {
+  font-size: var(--h2);
+  font-weight: 700;
+  margin-bottom: 0.1rem;
+}
+.Cta__wrapper p {
+  margin-bottom: 2rem;
+}
+
+/* MOBILE RESPONSIVE | cta */
+@media screen AND (max-width: 520px) {
+  .Cta__wrapper h2 {
+    font-size: var(--h3);
+  }
+}
+
 /* Footer */
 .footer {
   background-color: var(--clr-dark);
@@ -394,30 +516,159 @@ img {
 .aboutStyle__wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(42rem, 1fr));
-  gap: 4rem;
 }
- .aboutStyle__title h2{
-    font-size: var(--h2);
-    color: var(--clr-primary);
- }
- .aboutStyle__title p{
-    padding-bottom: 3rem;
- }
+.aboutStyle__title h2 {
+  font-size: var(--h2);
+  color: var(--clr-primary);
+}
+.aboutStyle__title p {
+  padding-bottom: 3rem;
+}
+
+/* STYLE */
+<style > input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid red;
+}
+</style>
 
 
 
 
 
+/* MOBILE RESPONSIVE | FOOTER */
+@media screen and (max-width: 520px) {
+  .footer__wrapper {
+    flex-direction: column;
+  }
+}
 
+/* CATALOG PAGE BANNER */
+.catalogBanner {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("INSIDE STYLE/img/catalog-banner.png");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50rem 0;
+}
 
+.catalogBanner__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.catalogBanner__wrapper h1 {
+  color: var(--clr-primary);
+  font-size: var(--h1);
+  font-weight: 700;
+}
+.catalogBanner__wrapper p {
+  font-size: var(--h4);
+  font-weight: 500;
+  line-height: 1;
+}
 
+/* CATALOG INTERIOR */
 
+/* .catalogCard--text p {
+  display: flex;
+  font-size: var(--h4);
+  color: var(--clr-dark);
+  text-align: justify;
+  align-items: center;
+} */
 
+.catalogInterior__title p {
+  font-size: var(--h3);
+  text-align: center;
+  color: var(--clr-primary);
+  font-weight: 700;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.catalogCard--text h3 {
+  display: flex;
+  font-size: var(--h3);
+  color: var(--clr-primary);
+  font-weight: 700;
+}
 
+.catalogCard--text p {
+  display: flex;
+  text-align: justify;
+}
+.catalogInterior__card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
+.catalogInterior__card img {
+  /* max-width: 100%; 
+    height: auto; */
+  margin-bottom: 5rem;
+}
 
+.catalogCard--text {
+  flex: 1;
+  padding-left: 5rem;
+}
 
+.catalogInterior__card:nth-child(2) {
+  flex-direction: row-reverse;
+  align-items: ;
+}
 
+.catalogInterior__card ul:nth-child(2) {
+  padding-right: 5rem;
+  padding-left: 0rem;
+  align-items: ;
+}
+
+.catalogInterior__wrapper {
+  position: relative;
+}
+
+.catalogInterior__card::before {
+  position: absolute;
+  content: "";
+  width: 280%;
+  height: 500px;
+  align-self: ;
+  background-color: var(--clr-secondary);
+  z-index: -1;
+  margin-inline-end: -250%;
+  margin-inline-start: -250%;
+  margin-top: -3.5%;
+}
+
+/* CONTACT PAGE NUMBER */
+.contactBanner {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid red;
+}
+
+.contactBanner__wrapper h1 {
+  font-size: var(--h1);
+  color: var(--clr-primary);
+  font-weight: 700;
+}
+.contactBanner__wrapper p {
+  font-weight: 500;
+}
 
 /* Assets */
 .btn {
